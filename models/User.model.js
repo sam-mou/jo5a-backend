@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
+// Define the User Schema
 const userSchema = new Schema(
   {
     email: {
@@ -14,16 +15,18 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required."],
     },
-    name: {
+    username: {
       type: String,
-      required: [true, "Name is required."],
+      required: [true, "Username is required."],
+      unique: true,
     },
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
+    // Automatically adds `createdAt` and `updatedAt` fields
     timestamps: true,
   }
 );
+
 
 const User = model("User", userSchema);
 
