@@ -24,10 +24,11 @@ const pitchSchema = new Schema(
       type: Boolean,
       required: [true, "Indoor status is required."],
     },
+    imageUrl: {
+      type: String,
+      required: [true, "Image is required."],
+    }
   },
-  {
-    timestamps: true, // Automatically adds `createdAt` and `updatedAt` fields
-  }
 );
 
 const FootballPitch = model("FootballPitch", pitchSchema);

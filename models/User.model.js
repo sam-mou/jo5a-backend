@@ -22,7 +22,6 @@ const userSchema = new Schema(
     },
   },
   {
-    // Automatically adds `createdAt` and `updatedAt` fields
     timestamps: true,
   }
 );
