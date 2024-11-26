@@ -34,9 +34,9 @@ const getPitchById = (req, res, next) => {
 
 // Create a new pitch
 const createPitch = (req, res, next) => {
-  const { name, location, description, capacity, type, imageUrl } = req.body;
+  const { name, location, date, startTime, description, capacity, type, imageUrl } = req.body;
 
-  FootballPitch.create({ name, location, description, capacity, type, imageUrl })
+  FootballPitch.create({ name, location, date, startTime, description, capacity, type, imageUrl })
     .then((newPitch) => {
       res.status(201).json(newPitch);
     })

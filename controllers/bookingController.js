@@ -28,13 +28,13 @@ exports.getUserBookings = (req, res, next) => {
 
 // Create a new booking
 exports.createBooking = (req, res, next) => {
-    const { pitchId, numberOfPlayers, date, startTime, endTime } = req.body;
+    const { pitchId, numberOfPlayers } = req.body;
   
-    console.log("User ID:", req.user._id); // Log the user ID for debugging
+    console.log("User ID:", req.user._id); 
   
     Booking.create({
-      userId: req.user._id, // No need for explicit casting
-      pitchId, // Mongoose will cast this to ObjectId if valid
+      userId: req.user._id,
+      pitchId, 
       numberOfPlayers,
       date,
       startTime,
@@ -44,7 +44,7 @@ exports.createBooking = (req, res, next) => {
         res.status(201).json(booking);
       })
       .catch((error) => {
-        console.error("Error creating booking:", error); // Log the error for debugging
+        console.error("Error creating booking:", error);
         next(error);
       });
   };

@@ -6,7 +6,7 @@ const bookingSchema = new Schema(
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true, // Ensure it's marked as required
+      required: true, 
     },
     pitchId: {
       type: Schema.Types.ObjectId,
@@ -23,33 +23,9 @@ const bookingSchema = new Schema(
         message: "The number of players must be an integer.",
       },
     },
-    date: {
-      type: Date,
-      required: true,
-      validate: {
-        validator: (value) => value >= new Date(),
-        message: "Booking date must be in the future.",
-      },
-    },
-    startTime: {
-      type: String,
-      required: true,
-      validate: {
-        validator: (value) => /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(value),
-        message: "Start time must be in HH:mm format.",
-      },
-    },
-    endTime: {
-      type: String,
-      required: true,
-      validate: {
-        validator: (value) => /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(value),
-        message: "End time must be in HH:mm format.",
-      },
-    },
   },
   {
-    timestamps: true,
+    timestamps: true, 
   }
 );
 
