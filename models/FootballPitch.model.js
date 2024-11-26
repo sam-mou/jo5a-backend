@@ -5,12 +5,14 @@ const pitchSchema = new Schema(
     name: {
       type: String,
       required: [true, "Pitch name is required."],
-      trim: true,
     },
     location: {
       type: String,
       required: [true, "Location is required."],
-      trim: true,
+    },
+    description: {
+      type: String,
+      required: [true, "Description is required."],
     },
     capacity: {
       type: Number,
@@ -20,9 +22,9 @@ const pitchSchema = new Schema(
         message: "Capacity must be an integer.",
       },
     },
-    isIndoor: {
-      type: Boolean,
-      required: [true, "Indoor status is required."],
+    type: {
+      type: String,
+      required: [true, "Pitch type is required."],
     },
     imageUrl: {
       type: String,

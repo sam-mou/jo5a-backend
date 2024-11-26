@@ -17,7 +17,7 @@ const bookingSchema = new Schema(
       type: Number,
       required: true,
       min: [1, "There must be at least one player."],
-      max: [12, "There must be less than 12 players."],
+      max: [16, "There must be less than 16 players."],
       validate: {
         validator: Number.isInteger,
         message: "The number of players must be an integer.",

@@ -12,7 +12,7 @@ const router = express.Router();
 
 const { isAuthenticated } = require("../middleware/jwt.middleware");
 
-router.get("/", isAuthenticated, getAllPitches);
+router.get("/", getAllPitches);
 router.get("/:id", isAuthenticated, getPitchById);
 router.post("/", isAuthenticated, createPitch);
 router.put("/:id", isAuthenticated, updatePitch);
