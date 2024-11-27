@@ -15,6 +15,10 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
+//HealthCheck
+const healthCheck = require("./routes/index.js");
+app.use("/api", healthCheck);
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/api", indexRoutes);
