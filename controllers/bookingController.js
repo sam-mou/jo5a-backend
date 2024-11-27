@@ -28,23 +28,14 @@ exports.getUserBookings = (req, res, next) => {
 
 // Create a new booking
 exports.createBooking = (req, res, next) => {
-    const { pitchId, numberOfPlayers } = req.body;
+    const { pitchId } = req.body;
   
-    console.log("User ID:", req.user._id); 
-  
-    Booking.create({
-      userId: req.user._id,
-      pitchId, 
-      numberOfPlayers,
-      date,
-      startTime,
-      endTime,
-    })
+    Booking.create({userId: req.user._id, pitchId})
       .then((booking) => {
         res.status(201).json(booking);
       })
       .catch((error) => {
-        console.error("Error creating booking:", error);
+        console.error("Error creating booking....", error);
         next(error);
       });
   };
