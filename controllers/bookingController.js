@@ -16,7 +16,7 @@ exports.getAllBookings = (req, res, next) => {
 
 // Get bookings for the logged-in user
 exports.getUserBookings = (req, res, next) => {
-  Booking.find({ userId: req.user.id })
+  Booking.find({ userId: req.user._id })
     .populate("pitchId", "name location")
     .then((bookings) => {
       res.status(200).json(bookings);
